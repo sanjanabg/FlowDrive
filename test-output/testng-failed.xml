@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Regression Suite]">
+  <test name="Tests(failed)">
+    <classes>
+      <class name="InstallandLaunch.RegisterandSubmitProfile_Valid">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="Launch"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- InstallandLaunch.RegisterandSubmitProfile_Valid -->
+      <class name="InstallandLaunch.InstallandLaunchFlow">
+        <methods>
+          <include name="Launch"/>
+        </methods>
+      </class> <!-- InstallandLaunch.InstallandLaunchFlow -->
+    </classes>
+  </test> <!-- Tests(failed) -->
+</suite> <!-- Failed suite [Regression Suite] -->
