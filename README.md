@@ -55,4 +55,8 @@ Automated Scenarios :
 
 
 
+Test Reports:
+----------------
+
+* Once after the suite is run the result Reports are generated in Test_Output folder(index.html).
 

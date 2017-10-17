@@ -31,8 +31,8 @@ public class InstallandLaunchFlow {
 
 	protected static AndroidDriver<AndroidElement> driver;
 
-	@BeforeMethod
-	public void beforeMethod()
+	@Test
+	public void launch()
 			throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException {
 
 		FileInputStream fis = new FileInputStream(
@@ -67,19 +67,19 @@ public class InstallandLaunchFlow {
 		Reporter.log("Flow App Installed and Launched Successfully");
 
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
-		Thread.sleep(5000);
+		Thread.sleep(20000);
 
-	}
+	
 
-	@Test
-	public void Launch() throws InterruptedException {
-		// Click on I Agree in Terms and Conditions page
+	    // Click on I Agree in Terms and Conditions page
 		driver.findElement(By.id("com.thefloow.flo:id/btn_agree")).click();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
+		 
 		if (driver.findElement(By.name("Please log in")).isDisplayed()) {
+			 
 			Reporter.log("successfully Clicked on I Agree Button and navigated to Login Page");
 		}
-		driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
+		
 
 	}
 

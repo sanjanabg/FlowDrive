@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -26,15 +27,17 @@ public class Login_Valid extends InstallandLaunchFlow {
 		Workbook wb = WorkbookFactory.create(fis);
 		Sheet sh = wb.getSheet("login_valid");
 		Row row = sh.getRow(1);
-
-		Cell c1 = row.getCell(0);
-		String eml = c1.getStringCellValue();
-
-		Cell c2 = row.getCell(1);
-		String pswd = c2.getStringCellValue();
-
+		 
+		 DataFormatter formatter = new DataFormatter(); //creating formatter using the default locale
+		 Cell c1 = row.getCell(0);
+		 String eml = formatter.formatCellValue(c1);
+		
+		 Cell c2 = row.getCell(1);
+		 String pswd = formatter.formatCellValue(c2);
+		 
 		// valid login by registered user
 		driver.findElement(By.id("com.thefloow.flo:id/edit_text_email")).sendKeys(eml);
+		 
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		driver.findElement(By.id("com.thefloow.flo:id/edit_text_password")).sendKeys(pswd);
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
